@@ -1,0 +1,270 @@
+/* ページのデフォルトマージンをリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ナビゲーションバーをページの上部に固定 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.logo img {
+  height: 50px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #f0f0f0;
+  border-bottom: 2px solid #fff;
+}
+
+/* 動画をフルスクリーン表示（ヘッダーと別） */
+.video-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-top: 70px; /* ヘッダーの高さ分を下げる */
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画面いっぱいに動画を表示 */
+}
+
+/* --------------------- */
+/*  Aboutページ用スタイル  */
+/* --------------------- */
+
+/* 固定ヘッダーによる重なり回避のため、main全体に余白を追加 */
+main {
+  margin-top: 70px; /* ヘッダーの高さと合わせる */
+}
+
+/* Aboutセクション */
+.about-section {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff; /* 背景白 */
+  color: #000;            /* 文字黒 */
+}
+
+.about-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* テーブル全体のスタイル */
+/* 横幅を60%にして中央寄せに変更 */
+.about-table {
+  width: 60%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+/* 表の枠をなくし、セル内のpaddingで題目と内容の間隔を維持 */
+.about-table th,
+.about-table td {
+  border: none;        /* 枠線を削除 */
+  padding: 12px;       /* 題目と内容の間隔を維持 */
+  vertical-align: top;
+}
+
+/* テーブルのタイトルセル：全体の40% */
+.page_tableTitle__2if_7 {
+  width: 40%;
+  background-color: #f0f0f0; /* タイトルセルは薄いグレー（任意） */
+  text-align: left;
+  font-weight: bold;
+}
+
+/* テーブルの説明セル：全体の60% */
+.page_tableDesc__2acL7 {
+  width: 60%;
+}
+
+/* テーブル内テキストのスタイル */
+.page_tableText__vC5xq {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* li要素の箇条書きマーカーを削除 */
+.about-table ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* definition listのスタイル */
+dl {
+  margin: 0;
+}
+
+dl div {
+  margin-bottom: 8px;
+}
+
+/* 沿革など、タイムライン表示用のスタイル */
+.page_thin__deATf dt {
+  display: inline-block;
+  width: 50px;
+  font-weight: bold;
+}
+
+.page_thin__deATf dd {
+  display: inline;
+  margin-left: 10px;
+}
+
+/* フッターのスタイル */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 20px;
+}
+
+/* Contactページ専用スタイル */
+
+/* 固定ヘッダーの高さ分、mainの上部に余白を確保 */
+main {
+  margin-top: 70px;
+}
+
+.contact-section {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff; /* 背景白 */
+  color: #000;            /* 文字は黒 */
+}
+
+.contact-section h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-section .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-section textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-section .required {
+  color: red;
+}
+
+.contact-section button {
+  width: 150px;
+  padding: 10px;
+  align-self: center;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Worksページ専用スタイル */
+
+.works-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  color: #000;
+}
+
+.works-section h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 動画アイテムのグリッド配置 */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 横3列 */
+  gap: 20px;
+}
+
+/* 各動画アイテム */
+.video-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.video-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.video-title {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
