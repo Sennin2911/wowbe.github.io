@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: white;
 }
 
 .logo img {
@@ -36,7 +36,7 @@ header {
 }
 
 .menu li a {
-  color: #fff;
+  color: rgb(55, 130, 155);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
@@ -60,6 +60,15 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover; /* 画面いっぱいに動画を表示 */
+}
+
+/* スマートフォン表示時の動画縦横比調整 */
+@media screen and (max-width: 767px) {
+  .video-container video {
+    height: 100%;
+    margin: 0 auto; /* 中央寄せ */
+    object-fit: contain; /* アスペクト比を維持 */
+  }
 }
 
 /* --------------------- */
@@ -149,11 +158,12 @@ dl div {
 
 /* フッターのスタイル */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: white;
+  color: rgb(55, 130, 155);
   text-align: center;
   padding: 15px 20px;
-  margin-top: 20px;
+  font-size: 10px;
+  margin-top: 0; /* 上部の余白を削除 */
 }
 
 /* Contactページ専用スタイル */
