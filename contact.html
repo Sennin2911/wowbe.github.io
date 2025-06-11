@@ -32,7 +32,7 @@
         <section class="contact-section">
             <h1>お問い合わせ</h1>
             <!-- Netlify Form -->
-            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+            <form name="contact" netlify>
                 <input type="hidden" name="form-name" value="contact" />
                 
                 <div class="form-group">
@@ -73,7 +73,29 @@
         <p>wowbe.inc All rights reserved</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // ハンバーガーメニューの制御のみ
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.menu');
+
+            if (hamburger && menu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    menu.classList.toggle('active');
+                });
+
+                // メニューリンクをクリックしたらメニューを閉じる
+                document.querySelectorAll('.menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        menu.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+
     <style>
         .submit-message {
             margin-top: 20px;
