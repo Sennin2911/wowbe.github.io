@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+[forms]
+  [forms.contact]
+    name = "contact"
+    fields = { name = "string", email = "email", company = "string", phone = "string", message = "text" }
+    success_url = "/thanks.html" 
