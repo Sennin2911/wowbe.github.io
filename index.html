@@ -19,6 +19,11 @@
                 <img src="assets/logo.png" alt="ロゴ">
               </a>
             </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="menu">
                 <li><a href="about.html">About</a></li>
                 <!-- <li><a href="#works">Works</a></li> -->
@@ -29,14 +34,48 @@
 
     <!-- 動画エリア（ヘッダーとは分離） -->
     <main class="video-container">
-        <video autoplay muted playsinline loop>
-            <source src="assets/wowbe_PC.mp4" type="video/mp4" media="(min-width: 768px)">
-            <source src="assets/wowbe_tate.mp4" type="video/mp4" media="(max-width: 767px)">
+        <video autoplay muted playsinline loop id="bg-video">
+          <!-- JSでsourceを追加 -->
         </video>
     </main>
     <!-- フッター -->
     <footer>
         <p>wowbe.inc All rignts reseved</p>
     </footer>
+
+    <script>
+        // ハンバーガーメニューの制御
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const menu = document.querySelector('.menu');
+
+            if (hamburger && menu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    menu.classList.toggle('active');
+                });
+
+                // メニューリンクをクリックしたらメニューを閉じる
+                document.querySelectorAll('.menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        menu.classList.remove('active');
+                    });
+                });
+            }
+
+            // 動画ソースの動的切り替え
+            const video = document.getElementById('bg-video');
+            const source = document.createElement('source');
+            if (window.innerWidth >= 768) {
+                source.src = 'assets/wowbe_PC.mp4';
+            } else {
+                source.src = 'assets/wowbe_tate.mp4';
+            }
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            video.load();
+        });
+    </script>
 </body>
 </html>

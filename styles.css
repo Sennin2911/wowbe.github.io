@@ -22,8 +22,11 @@ header {
   background: white;
 }
 
+/* ロゴのスタイル - デスクトップサイズ */
 .logo img {
-  height: 50px;
+  height: 60px; /* デスクトップでは少し大きく */
+  width: auto;
+  transition: height 0.3s ease; /* スムーズなサイズ変更 */
 }
 
 .menu {
@@ -47,6 +50,35 @@ header {
   border-bottom: 2px solid #fff;
 }
 
+/* ハンバーガーメニュー - デフォルトでは非表示 */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(55, 130, 155);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* ハンバーガーメニューがアクティブ時のスタイル */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* 動画をフルスクリーン表示（ヘッダーと別） */
 .video-container {
   width: 100%;
@@ -64,10 +96,82 @@ header {
 
 /* スマートフォン表示時の動画縦横比調整 */
 @media screen and (max-width: 767px) {
+  /* ロゴをスマホサイズに調整 */
+  .logo img {
+    height: 40px; /* スマホでは小さく */
+  }
+  
+  /* ハンバーガーメニューを表示 */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* メニューを非表示に */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  /* メニューがアクティブ時の表示 */
+  .menu.active {
+    display: flex;
+  }
+  
+  .menu li {
+    margin: 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .menu li a {
+    display: block;
+    padding: 15px 20px;
+    text-align: center;
+  }
+  
+  .menu li a:hover {
+    background-color: #f5f5f5;
+    border-bottom: none;
+  }
+  
+  /* 動画の縦横比調整 */
   .video-container video {
     height: 100%;
-    margin: 0 auto; /* 中央寄せ */
-    object-fit: contain; /* アスペクト比を維持 */
+    margin: 0 auto;
+    object-fit: contain;
+  }
+  
+  /* テーブルをスマホ対応 */
+  .about-table {
+    width: 95%;
+    font-size: 14px;
+  }
+  
+  .about-table th,
+  .about-table td {
+    padding: 8px;
+  }
+  
+  /* テーブルタイトルと説明を縦並びに */
+  .page_tableTitle__2if_7,
+  .page_tableDesc__2acL7 {
+    width: 100%;
+    display: block;
+  }
+  
+  .page_tableTitle__2if_7 {
+    background-color: #f0f0f0;
+    padding: 8px;
+    margin-bottom: 5px;
+  }
+  
+  .page_tableDesc__2acL7 {
+    padding: 8px 0;
   }
 }
 
