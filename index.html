@@ -63,27 +63,39 @@
             }
         });
 
+        let currentVideoType = null; // 現在の動画タイプを記録
+        let lastWidth = window.innerWidth;
+
+        setVideoSource();
+
+        window.addEventListener('resize', () => {
+            const newWidth = window.innerWidth;
+
+            if (newWidth === lastWidth) return;
+
+            lastWidth = newWidth;
+            setVideoSource();
+        });
+
         function setVideoSource() {
             const video = document.getElementById('bg-video');
-            // 既存のsourceをクリア
+            const isDesktop = window.innerWidth >= 768;
+            const newType = isDesktop ? 'desktop' : 'mobile';
+
+            if (currentVideoType === newType) return;
+            console.log('setVideoSource', newType);
+            currentVideoType = newType;
+
             video.innerHTML = '';
             const source = document.createElement('source');
-            if (window.innerWidth >= 768) {
-                source.src = 'assets/wowbe_PC.mp4';
-            } else {
-                source.src = 'assets/wowbe_tate.mp4';
-            }
-            source.type = 'video/mp4';
+            source.src = isDesktop ? 'assets/wowbe_PC.mp4' : 'assets/wowbe_tate.mp4';
+            source .type = 'video/mp4';
             video.appendChild(source);
+
             video.load();
             // 自動再生
             video.play().catch(() => {});
         }
-
-        // 初回
-        setVideoSource();
-        // リサイズ時も切り替え
-        window.addEventListener('resize', setVideoSource);
     </script>
 </body>
 </html>
