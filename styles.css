@@ -146,33 +146,11 @@ header {
     object-fit: contain;
   }
   
-  /* テーブルをスマホ対応 */
+  /* スマホではテーブル幅を100%に */
   .about-table {
-    width: 95%;
-    font-size: 14px;
+    width: 100% !important;
   }
   
-  .about-table th,
-  .about-table td {
-    padding: 8px;
-  }
-  
-  /* テーブルタイトルと説明を縦並びに */
-  .page_tableTitle__2if_7,
-  .page_tableDesc__2acL7 {
-    width: 100%;
-    display: block;
-  }
-  
-  .page_tableTitle__2if_7 {
-    background-color: #f0f0f0;
-    padding: 8px;
-    margin-bottom: 5px;
-  }
-  
-  .page_tableDesc__2acL7 {
-    padding: 8px 0;
-  }
 }
 
 /* --------------------- */
@@ -231,6 +209,8 @@ main {
 .page_tableText__vC5xq {
   font-size: 14px;
   line-height: 1.4;
+  width: 100%;
+  display: block;
 }
 
 /* li要素の箇条書きマーカーを削除 */
